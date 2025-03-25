@@ -7,13 +7,6 @@ public interface LoggerStrategy {
     void log(String message);
 }
 
-class ConsoleLogger implements LoggerStrategy {
-    @Override
-    public void log(String message) {
-        System.out.println("[Console Log]: " + message);
-    }
-}
-
 class FileLogger implements LoggerStrategy {
     private static final Logger logger = LoggerFactory.getLogger(FileLogger.class);
 

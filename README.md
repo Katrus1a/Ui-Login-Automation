@@ -1,38 +1,45 @@
-# SauceDemo Web Testing Automation
+# Ui-Login-Automation
 
-## Project Description
-This project implements automated testing of the login form on the [SauceDemo](https://www.saucedemo.com/) website using **Selenium WebDriver** and **TestNG**.
-The test cases cover various user interaction scenarios with the login form, ensuring robust validation.
+This project contains automated UI tests for [SauceDemo](https://www.saucedemo.com/) login functionality using both **TestNG** and **Cucumber** in separate branches.
 
-## Features
-- Automated tests for the login form.
-- Validation of different login input scenarios.
-- Parallel test execution.
-- Logging of test processes using **SLF4J**.
-- Parameterized tests using **DataProvider**.
-- Structured test cases following **Page Object Model (POM)**.
+---
 
-## Test Scenarios
-✔ **UC-1:** Enter credentials, clear the fields, and verify the error message "Username is required".  
-✔ **UC-2:** Enter only the username, clear the password field, and verify the error message "Password is required".  
-✔ **UC-3:** Use correct login credentials, verify successful login, and check the "Swag Labs" page title.  
-✔ **UC-4:** Attempt to log in with a locked-out user and verify the error message.  
-✔ **UC-5:** Check login behavior for problematic user accounts.
+## Features Covered
 
-## Architecture & Design Patterns
-- **Singleton Pattern**: Ensures only one WebDriver instance per test session.
-- **Page Object Model (POM)**: Improves test maintenance and scalability.
-- **Data-Driven Testing**: Implemented with **TestNG DataProvider** for reusable test cases.
-- **Logging Strategy**: Uses **SLF4J** for structured test execution logging.
+-  Login with valid and invalid credentials
+- Empty username/password scenarios
+- Verification of error messages
+- Title check after successful login
 
-## Technologies
-- **Java**
-- **Selenium WebDriver**
-- **TestNG**
-- **Maven**
-- **WebDriverManager**
-- **Cucumber (BDD)**
-- **AssertJ** (for fluent assertions)
-- **SLF4J** (for logging)
+---
+
+##  Tech Stack
+
+| **Tool**               | **Purpose**                                                 |
+|------------------------|-------------------------------------------------------------|
+| **Java 11+**           | Programming language                                         |
+| **Maven**              | Build and dependency management                             |
+| **Selenium**           | Browser automation framework                                |
+| **TestNG**             | Testing framework (used in `testng` branch)                 |
+| **Cucumber**           | BDD framework (used in `cucumber` branch)                   |
+| **WebDriverManager**   | Automatic driver resolution and setup                       |
+| **SLF4J + Logback**    | Logging system for test events                              |
+| **AssertJ**            | Fluent assertions for readable validations                  |
+| **Page Object Model**  | Design pattern for separating page logic                    |
+| **TestNG Listeners**   | Attach screenshots and logs on failure                      |
+| **Cucumber Hooks**     | Manages driver lifecycle and failure handling               |
+| **Parallel Testing**   | Enabled for multi-browser testing via `testng.xml`          |
+| **Browsers Supported** | Chrome (default), Firefox (via `-Dbrowser=firefox`)         |
+
+---
+
+##  Branch Structure
+
+| **Branch**   | **Purpose**                               |
+|--------------|--------------------------------------------|
+| `testng`     | Contains all tests written using **TestNG**|
+| `cucumber`   | Contains all tests written using **Cucumber**|
+
+>  Each branch contains its own test configuration, `testng.xml`, feature files or step definitions as needed.
 
 

@@ -1,16 +1,17 @@
-Feature: Login Functionality
+Feature: Login functionality
 
-  Scenario: Login with empty credentials
+  Scenario Outline: Invalid login attempts
     Given User is on login page
-    When User enters "" and "" and clicks login
-    Then Error message should be "Epic sadface: Username is required"
+    When User enters "<username>" and "<password>" and clicks login
+    Then Error message should be "<errorMessage>"
 
-  Scenario: Login with missing password
-    Given User is on login page
-    When User enters "standard_user" and "" and clicks login
-    Then Error message should be "Epic sadface: Password is required"
+    Examples:
+      | username   | password     | errorMessage                                                         |
+      |            | anyPassword | Epic sadface: Username is required                                   |
+      | someUser   |             | Epic sadface: Password is required                                   |
+      | wrongUser  | wrongPass   | Epic sadface: Username and password do not match any user in this service |
 
-  Scenario: Login with correct credentials
+  Scenario: Successful login with valid credentials
     Given User is on login page
     When User enters "standard_user" and "secret_sauce" and clicks login
     Then User should be logged in and see "Swag Labs"

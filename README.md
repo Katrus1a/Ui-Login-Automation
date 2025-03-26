@@ -33,13 +33,19 @@ This project contains automated UI tests for [SauceDemo](https://www.saucedemo.c
 
 ---
 
-##  Branch Structure
+## Branch Structure
 
-| **Branch**   | **Purpose**                               |
-|--------------|--------------------------------------------|
-| `testng`     | Contains all tests written using **TestNG**|
-| `cucumber`   | Contains all tests written using **Cucumber**|
+This project uses two separate branches for different test frameworks:
 
->  Each branch contains its own test configuration, `testng.xml`, feature files or step definitions as needed.
+| Branch   | Description                                  |
+|----------|----------------------------------------------|
+| `testng` | Contains tests written using **TestNG**      |
+| `cucumber` | Contains BDD tests written using **Cucumber** |
+
+To run a specific version, switch to the appropriate branch:
+
+```bash
+git checkout testng   # For TestNG-based tests
+git checkout cucumber # For Cucumber-based tests
 
 

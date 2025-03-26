@@ -4,6 +4,7 @@ import com.epam.automation.pages.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+
 public class NegativeLoginTest extends BaseTest {
 
     @Test

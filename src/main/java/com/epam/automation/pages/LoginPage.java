@@ -4,6 +4,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import java.time.Duration;
+
+
+import static com.epam.automation.driver.DriverManager.getDriver;
 
 public class LoginPage extends BasePage {
 
@@ -19,12 +24,15 @@ public class LoginPage extends BasePage {
     @FindBy(css = "[data-test='error']")
     private WebElement errorMessage;
 
+    private WebDriverWait wait;
+
     public LoginPage(WebDriver driver) {
         super(driver);
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     public void open() {
-        driver.get("https://www.saucedemo.com/");
+        getDriver().get("https://www.saucedemo.com/");
     }
 
     public void login(String username, String password) {
@@ -32,6 +40,9 @@ public class LoginPage extends BasePage {
         setInputValue(passwordInput, password);
         clickLogin();
     }
+
+
+
 
     public void enterUsername(String username) {
         setInputValue(usernameInput, username);
